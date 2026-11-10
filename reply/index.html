@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#194c43">
+  <title>고객 문의 답장 도우미 · 샛별중학교</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="settings" aria-labelledby="settings-title">
+      <h2 id="settings-title">⚙️ 설정</h2>
+      <form id="settings-form">
+        <label for="team-code">팀 코드</label>
+        <div class="settings-row">
+          <input id="team-code" type="password" autocomplete="off" spellcheck="false" placeholder="팀 코드를 입력하세요">
+          <button id="save-team" type="submit" class="secondary">저장 · 확인</button>
+        </div>
+      </form>
+      <p id="connection" class="status" role="status" aria-live="polite">팀 코드를 저장하면 연결 상태가 표시됩니다.</p>
+    </section>
+
+    <header class="intro">
+      <p class="eyebrow"><span class="school-mark" aria-hidden="true">✦</span> 샛별중학교 · 민원 안내</p>
+      <h1>고객 문의<br class="mobile-break"> 답장 도우미</h1>
+      <p class="description">학부모님과 학생의 문의에,<br>정중하고 따뜻한 답장을 준비하세요.</p>
+    </header>
+
+    <aside class="principle"><span aria-hidden="true">✓</span><p><strong>우리 학교 안내 원칙</strong><br>여행 기간은 4박 5일입니다.</p></aside>
+
+    <div class="workspace">
+      <section class="card" aria-labelledby="input-title">
+        <div class="section-heading"><span class="step" aria-hidden="true">1</span><h2 id="input-title">문의 붙여 넣기</h2></div>
+        <form id="reply-form">
+          <label class="helper" for="inquiry">받으신 문의 내용을 아래에 넣어 주세요.</label>
+          <textarea id="inquiry" rows="8" placeholder="예시: 김○○ 학부모입니다. 여행 기간이 궁금합니다. 연락처는 010-0000-0001입니다."></textarea>
+          <fieldset>
+            <legend>답장 말투</legend>
+            <button type="button" id="tone" class="tone" aria-pressed="true">✓ 친근하게</button>
+            <p class="helper tone-description">친근하면서도 신뢰감 있는 정중한 존댓말</p>
+          </fieldset>
+          <button type="submit" id="generate" class="primary">답장 만들기 <span aria-hidden="true">↗</span></button>
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card result-card" aria-labelledby="result-title" id="result-section" aria-busy="false">
+        <div class="result-heading"><div class="section-heading"><span class="step" aria-hidden="true">2</span><h2 id="result-title">완성된 답장</h2></div><button type="button" id="copy" class="copy" disabled>복사</button></div>
+        <label class="helper" for="result">내용을 확인하고 필요한 부분은 고쳐 주세요.</label>
+        <textarea id="result" rows="10" placeholder="답장이 여기에 표시됩니다.&#10;&#10;왼쪽에 문의를 넣고 ‘답장 만들기’를 눌러 주세요."></textarea>
+        <div class="metrics" aria-live="polite"><p>비용 <strong id="cost">— 원</strong></p><p>걸린 시간 <strong id="elapsed">— 초</strong></p></div>
+        <p class="review-note">보내기 전에 사실과 안내 내용을 꼭 확인해 주세요.</p>
+      </section>
+    </div>
+    <footer>입력 내용과 답장은 이 브라우저에 자동으로 저장됩니다.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>견적서 만들기 · 샛별중학교</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar no-print"><div class="topbar-inner"><span class="brand-mark" aria-hidden="true">✦</span><strong>샛별중학교</strong><span class="team">민원 업무 도우미</span></div></header>
+  <main>
+    <section class="intro no-print">
+      <div><p class="eyebrow">학교 행정 · 견적 작성</p><h1>견적서 만들기</h1><p>내용을 입력하시면 금액 계산부터 서류 준비까지 도와드립니다.</p></div>
+      <p id="save-status" role="status">자동 저장 준비 중</p>
+    </section>
+    <div class="toolbar no-print" aria-label="견적서 작업">
+      <p>작성한 내용을 확인한 후 내보내 주세요.</p>
+      <div class="actions"><button id="export" type="button">엑셀용 파일 받기</button><button id="print" type="button" class="primary">인쇄 · PDF</button></div>
+    </div>
+    <article class="document" aria-label="견적서">
+      <div class="document-heading"><div><p class="eyebrow">샛별중학교</p><h2>견적서</h2></div><div class="metadata"><p>견적 번호 <strong id="quote-number"></strong></p><p>작성일 <strong id="quote-date"></strong></p></div></div>
+      <div class="parties">
+        <section class="party"><h3><span>01</span> 받는 곳</h3><label for="recipient">기관명 또는 성함</label><input id="recipient" data-field="recipient" maxlength="80"><label for="recipient-contact">연락처</label><input id="recipient-contact" data-field="recipientContact" type="tel" maxlength="40"></section>
+        <section class="party"><h3><span>02</span> 보내는 곳</h3><label for="sender">학교 또는 기관명</label><input id="sender" data-field="sender" maxlength="80"><div class="sender-detail"><div><label for="sender-person">담당자</label><input id="sender-person" data-field="senderPerson" maxlength="40"></div><div><label for="sender-contact">연락처</label><input id="sender-contact" data-field="senderContact" type="tel" maxlength="40"></div></div></section>
+      </div>
+      <section class="items-section"><div class="section-heading"><h3>견적 내역</h3><span>금액 단위: 원</span></div>
+        <table><caption class="sr-only">품목별 수량, 단가 및 금액</caption><thead><tr><th scope="col">품목</th><th scope="col">수량</th><th scope="col">단가</th><th scope="col">금액</th><th scope="col" class="no-print"><span class="sr-only">줄 삭제</span></th></tr></thead><tbody id="items"></tbody></table>
+        <button id="add-item" class="add-button no-print" type="button">＋ 품목 추가</button>
+      </section>
+      <div class="document-bottom"><section class="notes"><label for="notes">안내 사항</label><textarea id="notes" data-field="notes" rows="3" maxlength="400"></textarea><p class="no-print example-note">처음 표시된 성함과 연락처는 모두 가짜 예시입니다.</p></section><section class="totals" aria-label="견적 합계" aria-live="polite"><div><span>공급가액</span><strong id="subtotal"></strong></div><div><span>부가세 <span class="tax-rate">10%</span></span><strong id="tax"></strong></div><div class="grand-total"><span>총 견적 금액</span><strong id="total"></strong></div></section></div>
+      <footer class="document-footer">위와 같이 견적서를 제출합니다.<strong>샛별중학교</strong></footer>
+    </article>
+    <div class="page-bottom no-print"><p>입력 내용은 이 브라우저에 자동으로 저장됩니다.</p><button id="clear" type="button" class="danger">전체 지우기</button></div>
+    <p class="print-warning no-print" id="print-warning" role="status"></p>
+  </main>
+</body>
+</html>
